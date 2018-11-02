@@ -37,6 +37,7 @@ body {
     background: rgb(240, 163, 163);
     border-radius: 10rem;
     padding: 10px 20px;
+    color: white;
 }
 .clock date , time{
     display: block;
@@ -91,6 +92,10 @@ body {
     box-shadow: 2px 2px 8px rgba(0,0,0,.2);
 }
 
+.info p {
+    font-size: 1.4rem;
+}
+
 .music {
     grid-column: 2;
     position: relative;
@@ -103,6 +108,7 @@ footer {
     grid-column: span 3;
     text-align: center;
     font-size: 2rem;
+    color: crimson;
 }
 
 .mask {
@@ -156,6 +162,9 @@ footer {
 }
 
 @media (max-width: 650px) {
+    .wrapper h1 {
+        font-size: 2rem;
+    }
     .info, .one, .heart, .two, .clock {
         grid-column: span 12;
     }
@@ -166,4 +175,9 @@ footer {
         font-size: 1.2rem;
         margin-bottom: 2rem;
     }
+}
+
+canvas {
+    position: fixed;
+    top: 0;left: 0;
 }
