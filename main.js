@@ -7,9 +7,21 @@ document.addEventListener(
     let dateCount = document.querySelector('date');
     let wrapper = document.querySelector('.wrapper');
     let timeNow = document.querySelector('#today');
-    let day = Math.floor(
-      (dNow.getTime() - yourDate.getTime()) / 1000 / 3600 / 24
-    );
+
+    // get total seconds between the times
+    let delta = Math.floor(dNow.getTime() - yourDate.getTime()) / 1000;
+
+    // calculate (and subtract) whole days
+    let days = Math.floor(delta / 86400);
+    delta -= days * 86400;
+
+    // calculate (and subtract) whole hours
+    let hours = Math.floor(delta / 3600) % 24;
+    delta -= hours * 3600;
+
+    // calculate (and subtract) whole minutes
+    let minutes = Math.floor(delta / 60) % 60;
+    delta -= minutes * 60;
 
     document.querySelector('anni').textContent = `${
       yourDate.getDate() <= 9 ? '0' + yourDate.getDate() : yourDate.getDate()
@@ -18,13 +30,14 @@ document.addEventListener(
         ? '0' + (yourDate.getMonth() + 1)
         : yourDate.getMonth() + 1
     } - ${yourDate.getFullYear()}`;
+
     dateCount.textContent = `${
-      day >= 365
-        ? day % 365 === 0
-          ? Math.floor(day / 365) + ' YEARS'
-          : Math.floor(day / 365) + ' YEARS ' + (day % 365) + ' DAYS'
-        : day + ' DAYS'
-    }`;
+      days >= 365
+        ? days % 365 === 0
+          ? Math.floor(days / 365) + ' YEARS'
+          : Math.floor(days / 365) + ' YEARS ' + (days % 365) + ' daysS'
+        : days + ' DAYS'
+    } - ${hours} HOURS - ${minutes} MINUTES`;
 
     function startTime() {
       var today = new Date();
