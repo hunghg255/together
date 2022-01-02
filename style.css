@@ -13,6 +13,7 @@ body {
     grid-auto-rows: minmax(auto, auto);
     grid-row-gap: 10px;
     margin-top: 3.6rem;
+    z-index: 1;
 }
 
 .wrapper h1 {
@@ -33,7 +34,7 @@ body {
 
 
 .clock {
-    grid-column: 4/span 6;
+    grid-column: 3/span 8;
     text-align: center;
     background: rgb(240, 163, 163);
     border-radius: 10rem;
@@ -105,6 +106,7 @@ body {
 
 .info p {
     font-size: 1.4rem;
+    color: crimson;
 }
 
 .music {
@@ -113,6 +115,7 @@ body {
     z-index: 1000;
     opacity: .6;
     text-align: center;
+    /* opacity: 0; */
 }
 
 footer {
@@ -120,6 +123,7 @@ footer {
     text-align: center;
     font-size: 2rem;
     color: crimson;
+    font-style: italic;
 }
 
 .mask {
@@ -176,11 +180,33 @@ footer {
     .wrapper h1 {
         font-size: 2rem;
     }
-    .info, .one, .heart, .two, .clock {
+    .clock {
         grid-column: span 12;
     }
+    .info {
+        width: calc(100% - 20px);
+        margin: 3rem auto;
+    }
+    .info img {
+        width: 100px;
+        height: 100px;
+    }
+    .info p {
+        font-size: 1rem;
+        white-space: nowrap;
+        font-weight: 600;
+        margin: 0.6rem 0 0;
+    }
+    .one, .two {
+        grid-column: span 4;
+    }
     .heart {
-        margin-bottom: 3rem;
+        grid-column: span 4;
+        padding-top: 0;
+    }
+
+    .heart anni {
+        font-size: 14px !important;
     }
     footer {
         font-size: 1.2rem;
