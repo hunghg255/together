@@ -34,7 +34,7 @@ body {
 
 
 .clock {
-    grid-column: 3/span 8;
+    grid-column: 4/span 6;
     text-align: center;
     background: rgb(240, 163, 163);
     border-radius: 10rem;
@@ -43,6 +43,12 @@ body {
 }
 .clock date , time{
     display: block;
+}
+
+@media (max-width: 1600px){
+    .clock {
+        grid-column: 3/span 8;
+    }
 }
 
 .clock date {
