@@ -9,6 +9,12 @@ const assets = [
   '/img/love.png',
   '/music/cmty.mp3',
   '/music/ctcgt.mp3',
+  '/img/heart16.png',
+  '/img/heart32.png',
+  '/img/heart64.png',
+  '/img/heart128.png',
+  '/img/heart256.png',
+  '/img/heart512.png',
 ];
 
 self.addEventListener('install', (installEvent) => {
