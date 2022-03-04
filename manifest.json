@@ -1,0 +1,43 @@
+{
+  "name": "Hùng ❤ Xuân",
+  "short_name": "HungXuan",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#ed143d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "72x72"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "96x96"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png","sizes": "128x128"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "144x144"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "152x152"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "192x192"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "384x384"
+    },
+    {
+      "src": "img/love.png",
+      "type": "image/png", "sizes": "512x512"
+    }
+  ]
+}
