@@ -151,7 +151,7 @@ document.addEventListener(
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker
-      .register('/serviceWorker.js')
+      .register('https://hunghg255.github.io/together/serviceWorker.js')
       .then((res) => console.log('service worker registered'))
       .catch((err) => console.log('service worker not registered', err));
   });
