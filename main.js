@@ -34,10 +34,10 @@ document.addEventListener(
     dateCount.textContent = `${
       days >= 365
         ? days % 365 === 0
-          ? Math.floor(days / 365) + ' YEARS'
-          : Math.floor(days / 365) + ' YEARS ' + (days % 365) + ' daysS'
-        : days + ' DAYS'
-    } - ${hours} HOURS - ${minutes} MINUTES`;
+          ? Math.floor(days / 365) + 'Y ❤ '
+          : Math.floor(days / 365) + 'Y ❤ ' + (days % 365) + 'D'
+        : days + 'D'
+    } ❤ ${hours}H ❤ ${minutes}M`;
 
     function startTime() {
       var today = new Date();
@@ -222,8 +222,8 @@ document.addEventListener(
         c.move();
       });
     }
-    init();
-    animate();
+    // init();
+    // animate();
   },
   false
 );

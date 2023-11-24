@@ -50,4 +50,53 @@
     </div>
   </body>
   <script src="main.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+
+  <script>
+    const duration = 15 * 1000000,
+      animationEnd = Date.now() + duration;
+
+    let skew = 1;
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    (function frame() {
+      const timeLeft = animationEnd - Date.now(),
+        ticks = Math.max(200, 500 * (timeLeft / duration));
+
+      skew = Math.max(0.8, skew - 0.001);
+
+      confetti({
+        particleCount: 2,
+        startVelocity: 0,
+        ticks: ticks,
+        origin: {
+          x: Math.random(),
+          // since particles fall down, skew start toward the top
+          y: Math.random() * skew - 0.2,
+        },
+        colors: [
+          'FFC0CB',
+          'FF69B4',
+          'FF1493',
+          'C71585',
+          'C7DCA7',
+          '83A2FF',
+          'FFD28F',
+          'B15EFF',
+        ],
+        shapes: ['heart'],
+        gravity: randomInRange(0.1, 3),
+        scalar: randomInRange(1, 3),
+        drift: randomInRange(-0.4, 0.4),
+      });
+
+      if (timeLeft > 0) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  </script>
 </html>

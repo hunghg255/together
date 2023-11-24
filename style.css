@@ -6,6 +6,12 @@ body {
     grid-template-columns: repeat(12,1fr);
 }
 
+@media (max-width: 576px){
+    body {
+        height: 100vh;
+    }
+}
+
 .wrapper {
     grid-column: 3/11;
     display: grid;
@@ -14,6 +20,8 @@ body {
     grid-row-gap: 10px;
     margin-top: 3.6rem;
     z-index: 1;
+    position: relative;
+    z-index: 99999;
 }
 
 .wrapper h1 {
