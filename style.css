@@ -61,6 +61,7 @@ body {
 
 .clock date {
     font-size: 1.4rem;
+    margin: 8px 0 0;
 }
 
 @media (max-width: 768px){
@@ -97,12 +98,10 @@ body {
     font-size: 55px;
     padding-top: 45px;
     color: crimson;
+    transform: translateY(44px);
     text-align: center;
 }
 
-.heart anni {
-    font-size: 18px !important;
-}
 
 .two {
     grid-column: 8/ span 3;
@@ -219,14 +218,12 @@ footer {
         padding-top: 0;
     }
 
-    .heart anni {
-        font-size: 14px !important;
-    }
     footer {
         font-size: 1.2rem;
         margin-bottom: 2rem;
     }
 }
+
 
 canvas {
     position: fixed;

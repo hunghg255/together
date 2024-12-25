@@ -1,61 +1,110 @@
+const startLove = () => {
+  const yourDate = new Date('Thu Dec 30 2021 21:30:00 GMT+0700');
+  const dNow = new Date();
+  let dateCount = document.querySelector('.date1');
+  let timeNow = document.querySelector('.today1');
+
+  // get total seconds between the times
+  let delta = Math.floor(dNow.getTime() - yourDate.getTime()) / 1000;
+
+  // calculate (and subtract) whole days
+  let days = Math.floor(delta / 86400);
+  delta -= days * 86400;
+
+  // calculate (and subtract) whole hours
+  let hours = Math.floor(delta / 3600) % 24;
+  delta -= hours * 3600;
+
+  // calculate (and subtract) whole minutes
+  let minutes = Math.floor(delta / 60) % 60;
+  delta -= minutes * 60;
+
+  dateCount.textContent = `${
+    days >= 365
+      ? days % 365 === 0
+        ? Math.floor(days / 365) + 'Y ❤ '
+        : Math.floor(days / 365) + 'Y ❤ ' + (days % 365) + 'D'
+      : days + 'D'
+  } ❤ ${hours}H ❤ ${minutes}M`;
+
+  function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+
+    timeNow.innerHTML = `${h} : ${m} : ${s}`;
+    setTimeout(startTime, 500);
+  }
+  function checkTime(i) {
+    if (i < 10) {
+      i = '0' + i;
+    } // add zero in front of numbers < 10
+    return i;
+  }
+  startTime();
+}
+
+const startMarried = () => {
+  const yourDate = new Date('Thu Oct 27 2024 11:30:00 GMT+0700');
+  const dNow = new Date();
+  let dateCount = document.querySelector('.date2');
+  let timeNow = document.querySelector('.today2');
+
+  // get total seconds between the times
+  let delta = Math.floor(dNow.getTime() - yourDate.getTime()) / 1000;
+
+  // calculate (and subtract) whole days
+  let days = Math.floor(delta / 86400);
+  delta -= days * 86400;
+
+  // calculate (and subtract) whole hours
+  let hours = Math.floor(delta / 3600) % 24;
+  delta -= hours * 3600;
+
+  // calculate (and subtract) whole minutes
+  let minutes = Math.floor(delta / 60) % 60;
+  delta -= minutes * 60;
+
+  dateCount.textContent = `${
+    days >= 365
+      ? days % 365 === 0
+        ? Math.floor(days / 365) + 'Y ❤ '
+        : Math.floor(days / 365) + 'Y ❤ ' + (days % 365) + 'D'
+      : days + 'D'
+  } ❤ ${hours}H ❤ ${minutes}M`;
+
+  function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    timeNow.innerHTML = `${h} : ${m} : ${s}`;
+    setTimeout(startTime, 500);
+  }
+  function checkTime(i) {
+    if (i < 10) {
+      i = '0' + i;
+    } // add zero in front of numbers < 10
+    return i;
+  }
+  startTime();
+}
+
+
 document.addEventListener(
   'DOMContentLoaded',
   function () {
-    const yourDate = new Date('Thu Dec 30 2021 21:30:00 GMT+0700');
     const music = ['ctcht.mp3', 'cmty.mp3'];
-    const dNow = new Date();
-    let dateCount = document.querySelector('date');
     let wrapper = document.querySelector('.wrapper');
-    let timeNow = document.querySelector('#today');
 
-    // get total seconds between the times
-    let delta = Math.floor(dNow.getTime() - yourDate.getTime()) / 1000;
+    startLove();
 
-    // calculate (and subtract) whole days
-    let days = Math.floor(delta / 86400);
-    delta -= days * 86400;
-
-    // calculate (and subtract) whole hours
-    let hours = Math.floor(delta / 3600) % 24;
-    delta -= hours * 3600;
-
-    // calculate (and subtract) whole minutes
-    let minutes = Math.floor(delta / 60) % 60;
-    delta -= minutes * 60;
-
-    document.querySelector('anni').textContent = `${
-      yourDate.getDate() <= 9 ? '0' + yourDate.getDate() : yourDate.getDate()
-    } - ${
-      yourDate.getMonth() <= 9
-        ? '0' + (yourDate.getMonth() + 1)
-        : yourDate.getMonth() + 1
-    } - ${yourDate.getFullYear()}`;
-
-    dateCount.textContent = `${
-      days >= 365
-        ? days % 365 === 0
-          ? Math.floor(days / 365) + 'Y ❤ '
-          : Math.floor(days / 365) + 'Y ❤ ' + (days % 365) + 'D'
-        : days + 'D'
-    } ❤ ${hours}H ❤ ${minutes}M`;
-
-    function startTime() {
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-      m = checkTime(m);
-      s = checkTime(s);
-      timeNow.innerHTML = `${h} : ${m} : ${s}`;
-      setTimeout(startTime, 500);
-    }
-    function checkTime(i) {
-      if (i < 10) {
-        i = '0' + i;
-      } // add zero in front of numbers < 10
-      return i;
-    }
-    startTime();
+    startMarried();
 
     document
       .querySelector('audio')
