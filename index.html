@@ -3,113 +3,121 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="shortcut icon" href="img/love.png" type="image/x-icon" />
   <link rel="manifest" href="manifest.json" />
   <!-- ios support -->
-  <link rel="apple-touch-icon" href="img/heart16.png" />
-  <link rel="apple-touch-icon" href="img/heart32.png" />
-  <link rel="apple-touch-icon" href="img/heart64.png" />
   <link rel="apple-touch-icon" href="img/heart128.png" />
-  <link rel="apple-touch-icon" href="img/heart256.png" />
-  <link rel="apple-touch-icon" href="img/heart512.png" />
-  <meta name="apple-mobile-web-app-status-bar" content="#ed143d" />
-  <meta name="theme-color" content="#ed143d" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="apple-touch-icon" sizes="256x256" href="img/heart256.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="img/heart512.png" />
+  <meta name="apple-mobile-web-app-status-bar" content="#e0465f" />
+  <meta name="theme-color" content="#e0465f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <title>Hùng ❤ Xuân</title>
+  <title>Hùng ❤ Xuân ❤ Minh Anh</title>
 </head>
 
-<body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
-  <div class="wrapper">
-    <h1>Love Together</h1>
-    <div class="box-clock">
-      <div class="clock">
-        <anni class="anni1">30-12-2021</anni>
-        <date class="date1">0 DAYS</date>
-        <time id="today" class="today1">00:00:00</time>
-      </div>
-    </div>
+<body>
+  <main class="wrapper">
+    <header class="hero">
+      <h1>Love Together</h1>
+      <p class="subtitle">Gia đình nhỏ của chúng mình</p>
+    </header>
 
-    <div class="info">
-      <div class="one">
-        <img src="img/hung.jpeg" alt="" />
-        <p>Hoàng Gia Hùng</p>
-      </div>
-      <div class="heart">
-        ❤
-      </div>
-      <div class="two">
-        <img src="img/xuan.jpeg" alt="" />
-        <p>Ngô Thị Xuân</p>
-      </div>
-    </div>
+    <section class="family" aria-label="Gia đình">
+      <div class="parents">
+        <figure class="member">
+          <div class="avatar"><img src="img/hung.jpeg" alt="Hoàng Gia Hùng" /></div>
+          <figcaption>Hoàng Gia Hùng</figcaption>
+        </figure>
 
-    <div class="box-clock">
-      <div class="clock">
-        <anni class="anni2">27-10-2024</anni>
-        <date class="date2">0 DAYS</date>
-        <time id="today" class="today2">00:00:00</time>
+        <div class="heart" aria-hidden="true">❤</div>
+
+        <figure class="member">
+          <div class="avatar"><img src="img/xuan.jpeg" alt="Ngô Thị Xuân" /></div>
+          <figcaption>Ngô Thị Xuân</figcaption>
+        </figure>
       </div>
-    </div>
+
+      <div class="branch" aria-hidden="true"></div>
+
+      <figure class="member baby">
+        <div class="avatar"><img src="img/minhanh.png" alt="Hoàng Minh Anh" /></div>
+        <figcaption>
+          Hoàng Minh Anh
+          <small>Sinh ngày 06.02.2026</small>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="timeline" aria-label="Những cột mốc">
+      <article class="card" data-since="2021-12-30T21:30:00+07:00">
+        <span class="icon" aria-hidden="true">💕</span>
+        <h2>Ngày yêu nhau</h2>
+        <p class="date">30 · 12 · 2021</p>
+        <p class="count">…</p>
+        <p class="ticker">00 : 00 : 00</p>
+      </article>
+
+      <article class="card" data-since="2024-10-27T11:30:00+07:00">
+        <span class="icon" aria-hidden="true">💍</span>
+        <h2>Ngày cưới</h2>
+        <p class="date">27 · 10 · 2024</p>
+        <p class="count">…</p>
+        <p class="ticker">00 : 00 : 00</p>
+      </article>
+
+      <article class="card card-baby" data-since="2026-02-06T00:00:00+07:00">
+        <span class="icon" aria-hidden="true">👶</span>
+        <h2>Minh Anh chào đời</h2>
+        <p class="date">06 · 02 · 2026</p>
+        <p class="count">…</p>
+        <p class="ticker">00 : 00 : 00</p>
+      </article>
+    </section>
 
     <div class="music">
       <audio loop autoplay controls>
-        Your brower does not support the audio element.
+        Trình duyệt của bạn không hỗ trợ phát nhạc.
       </audio>
     </div>
+
     <footer>Thank you for your love!!!</footer>
-  </div>
+  </main>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+  <script>
+    (function () {
+      if (typeof confetti !== 'function') return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const colors = ['FFC0CB', 'FF69B4', 'FF1493', 'C71585', 'C7DCA7', '83A2FF', 'FFD28F', 'B15EFF'];
+      const randomInRange = (min, max) => Math.random() * (max - min) + min;
+
+      // a gentle, continuous drizzle of hearts
+      setInterval(() => {
+        confetti({
+          particleCount: 1,
+          startVelocity: 0,
+          ticks: 400,
+          origin: { x: Math.random(), y: Math.random() * 0.6 - 0.2 },
+          colors,
+          shapes: ['heart'],
+          gravity: randomInRange(0.3, 1.2),
+          scalar: randomInRange(1, 2.4),
+          drift: randomInRange(-0.4, 0.4),
+          zIndex: 0,
+          disableForReducedMotion: true,
+        });
+      }, 120);
+    })();
+  </script>
 </body>
-<script src="main.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
-
-<script>
-  const duration = 15 * 1000000,
-    animationEnd = Date.now() + duration;
-
-  let skew = 1;
-
-  function randomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  (function frame() {
-    const timeLeft = animationEnd - Date.now(),
-      ticks = Math.max(200, 500 * (timeLeft / duration));
-
-    skew = Math.max(0.8, skew - 0.001);
-
-    confetti({
-      particleCount: 2,
-      startVelocity: 0,
-      ticks: ticks,
-      origin: {
-        x: Math.random(),
-        // since particles fall down, skew start toward the top
-        y: Math.random() * skew - 0.2,
-      },
-      colors: [
-        'FFC0CB',
-        'FF69B4',
-        'FF1493',
-        'C71585',
-        'C7DCA7',
-        '83A2FF',
-        'FFD28F',
-        'B15EFF',
-      ],
-      shapes: ['heart'],
-      gravity: randomInRange(0.1, 3),
-      scalar: randomInRange(1, 3),
-      drift: randomInRange(-0.4, 0.4),
-    });
-
-    if (timeLeft > 0) {
-      requestAnimationFrame(frame);
-    }
-  })();
-</script>
 
 </html>

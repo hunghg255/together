@@ -1,231 +1,344 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
+:root {
+    --bg: #fff7f5;
+    --bg-2: #ffe9ee;
+    --ink: #4a2c35;
+    --muted: #9a7480;
+    --accent: #e0465f;
+    --accent-soft: #f7a1b0;
+    --card: rgba(255, 255, 255, 0.72);
+    --border: rgba(224, 70, 95, 0.14);
+    --baby: #7cc4a4;
+    --baby-soft: #d9f1e5;
+    --shadow: 0 12px 32px rgba(160, 60, 80, 0.12);
 }
 
-@media (max-width: 576px){
-    body {
-        height: 100vh;
-    }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--bg-2);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(1200px 600px at 10% -10%, #ffd9e0 0%, transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, #e3f5ec 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    overflow-x: hidden;
 }
 
 .wrapper {
-    grid-column: 3/11;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-auto-rows: minmax(auto, auto);
-    grid-row-gap: 10px;
-    margin-top: 3.6rem;
-    z-index: 1;
     position: relative;
-    z-index: 99999;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
 }
 
-.wrapper h1 {
-    grid-column: span 3;
+/* ---------- Hero ---------- */
+.hero {
     text-align: center;
-    font-weight: 400;
-    color: crimson;
-    font-size: 3rem;
+}
+
+.hero h1 {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 8vw, 4.2rem);
+    line-height: 1.1;
+    color: var(--accent);
+    text-shadow: 0 4px 18px rgba(224, 70, 95, 0.25);
     transform-origin: center bottom;
-    animation: bounce 1.2s infinite;
+    animation: bounce 2.4s infinite;
 }
 
-.box-clock {
-    grid-column: span 3;
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
+.subtitle {
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
+/* ---------- Family ---------- */
+.family {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
-.clock {
-    grid-column: 4/span 6;
+.parents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 6vw, 4rem);
+}
+
+.member {
+    margin: 0;
     text-align: center;
-    background: rgb(240, 163, 163);
-    border-radius: 10rem;
-    padding: 10px 20px;
-    color: white;
 }
-.clock date , time{
+
+.avatar {
+    --size: clamp(104px, 26vw, 164px);
+    width: var(--size);
+    height: var(--size);
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-soft), #fff 50%, var(--accent-soft));
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+.avatar img {
     display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
 }
 
-@media (max-width: 1600px){
-    .clock {
-        grid-column: 3/span 8;
-    }
+.member figcaption {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2.6vw, 1.15rem);
+    color: var(--accent);
+    white-space: nowrap;
 }
 
-.clock date {
-    font-size: 1.4rem;
-    margin: 8px 0 0;
-}
-
-@media (max-width: 768px){
-    .box-clock {
-        width: calc(100% - 20px);
-        margin: auto;
-    }
-    .clock date {
-        font-size: 1.2rem;
-    }
-}
-
-.clock time {
-    font-size: 2.6rem;
-    letter-spacing: 2px;
-}
-
-.info {
-    grid-column: span 3;
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
-    margin-top: 2.5rem;
-}
-
-.one {
-    grid-column: 3/span 3;
-    text-align: center;
+.member figcaption small {
+    display: block;
+    margin-top: 0.2rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--muted);
 }
 
 .heart {
-    grid-column: span 2;
-    display: flex;
-    flex-direction: column;
-    font-size: 55px;
-    padding-top: 45px;
-    color: crimson;
-    transform: translateY(44px);
-    text-align: center;
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    color: var(--accent);
+    margin-bottom: 2rem;
+    animation: beat 1.2s ease-in-out infinite;
 }
 
-
-.two {
-    grid-column: 8/ span 3;
-    text-align: center;
-}
-
-.info img {
-    max-width: 100%;
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 2px 2px 8px rgba(0,0,0,.2);
-}
-
-.info p {
-    font-size: 1.4rem;
-    color: crimson;
-}
-
-.music {
-    grid-column: 2;
+/* connector from the parents down to the baby */
+.branch {
     position: relative;
-    z-index: 1000;
-    opacity: .6;
+    width: min(60%, 340px);
+    height: 48px;
+    margin-top: 0.5rem;
+    border: 2px dashed var(--accent-soft);
+    border-top: none;
+    border-radius: 0 0 24px 24px;
+}
+
+.branch::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -30px;
+    height: 30px;
+    border-left: 2px dashed var(--accent-soft);
+}
+
+.baby {
+    margin-top: 30px;
+}
+
+.baby .avatar {
+    --size: clamp(140px, 36vw, 200px);
+    background: linear-gradient(135deg, var(--baby), #fff 50%, var(--baby));
+    animation: float 4s ease-in-out infinite;
+}
+
+.baby .avatar img {
+    object-position: 50% 18%;
+}
+
+.baby figcaption {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    color: #3f9a74;
+}
+
+.baby figcaption small {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+/* ---------- Timeline cards ---------- */
+.timeline {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.card {
+    position: relative;
+    padding: 1.4rem 1rem 1.2rem;
     text-align: center;
-    /* opacity: 0; */
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.card .icon {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    background: #ffe3e8;
+}
+
+.card h2 {
+    margin: 0.6rem 0 0.1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.card .date {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+}
+
+.card .count {
+    margin: 0.8rem 0 0.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.card .ticker {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+.card-baby .icon {
+    background: var(--baby-soft);
+}
+
+.card-baby h2,
+.card-baby .ticker {
+    color: #3f9a74;
+}
+
+/* ---------- Music & footer ---------- */
+.music audio {
+    width: min(320px, 90vw);
+    height: 40px;
+    opacity: 0.75;
 }
 
 footer {
-    grid-column: span 3;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    color: var(--accent);
     text-align: center;
-    font-size: 2rem;
-    color: crimson;
-    font-style: italic;
 }
 
-.mask {
-    grid-column: span 12;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 130, 116, 0.13);
+/* confetti canvas stays behind content */
+canvas {
+    position: fixed !important;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0 !important;
 }
 
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+    .wrapper {
+        gap: 2rem;
+        padding-top: 1.8rem;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            'icon title'
+            'icon date'
+            'count count'
+            'ticker ticker';
+        column-gap: 0.8rem;
+        text-align: left;
+        padding: 1rem 1.2rem;
+    }
+
+    .card .icon { grid-area: icon; align-self: center; }
+    .card h2 { grid-area: title; margin: 0; align-self: end; }
+    .card .date { grid-area: date; }
+    .card .count { grid-area: count; text-align: center; }
+    .card .ticker { grid-area: ticker; text-align: center; }
+}
+
+/* ---------- Animations ---------- */
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
 
 @keyframes bounce {
-    from,
-    20%,
-    53%,
-    80%,
-    to {
-      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
+    from, 20%, 53%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
     }
-
-    40%,
-    43% {
-      -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-      -webkit-transform: translate3d(0, -30px, 0);
-      transform: translate3d(0, -30px, 0);
+    40%, 43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -18px, 0);
     }
-
     70% {
-      -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-      -webkit-transform: translate3d(0, -15px, 0);
-      transform: translate3d(0, -15px, 0);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -9px, 0);
     }
-
     90% {
-      -webkit-transform: translate3d(0, -4px, 0);
-      transform: translate3d(0, -4px, 0);
-    }
-  }
-
-@media (max-width: 992px) {
-    .wrapper, h1, .box-clock, .music, audio, footer {
-        grid-column: span 12;
+        transform: translate3d(0, -3px, 0);
     }
 }
 
-@media (max-width: 650px) {
-    .wrapper h1 {
-        font-size: 2rem;
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
     }
-    .clock {
-        grid-column: span 12;
-    }
-    .info {
-        width: calc(100% - 20px);
-        margin: 3rem auto;
-    }
-    .info img {
-        width: 100px;
-        height: 100px;
-    }
-    .info p {
-        font-size: 1rem;
-        white-space: nowrap;
-        font-weight: 600;
-        margin: 0.6rem 0 0;
-    }
-    .one, .two {
-        grid-column: span 4;
-    }
-    .heart {
-        grid-column: span 4;
-        padding-top: 0;
-    }
-
-    footer {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-    }
-}
-
-
-canvas {
-    position: fixed;
-    top: 0;left: 0;
 }
